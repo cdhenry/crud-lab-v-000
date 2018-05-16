@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 
 class Restaurants extends Component {
   render() {
-    return(
+      const restaurants = this.props.store.getState().restaurants.map((restaurant, index) => {
+        return <Restaurant restaurant={restaurant} key={index} store={this.props.store} />
+      });
+
+      return(
       <ul>
-        Restaurants Component
+        {restaurants}
       </ul>
     );
   }
